@@ -7,16 +7,24 @@
     <script src="js/jquery-2.1.4.js"></script>
     <script src="js/scripts.js"></script>
 
+    <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-    Hello.
+    <div class="container">
+        <div class="search">
+            <div class="form-group">
+                <p>Search Flickr</p>
+                <input id="flickr.searchTerm" value="ferrari" class="form-control" />
+            </div>
+            <input class="button" type="submit" value="Submit" onclick="searchFlickr()" />
+        </div>
 
-    <input id="flickr.searchTerm" value="ferrari" />
-    <input class="button" type="submit" value="Submit" onclick="searchFlickr()" />
+        <div class="results">
+            <div id="resultCount"></div>
 
-    <div id="resultCount"># of results:</div>
-
-    <div id="resultImages"></div>
+            <div id="resultImages"></table>
+        </div>
+    </div>
 </body>
 </html>
