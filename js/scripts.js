@@ -11,10 +11,6 @@ function searchFlickr() {
             // TODO: instead of using appendTo() multiple times, somehow concatenate the results together and perform one big appendTo()
             createImage(photo).appendTo('#resultImages');
         });
-
-        console.log(data.photos);
-
-
     });
 
 }
