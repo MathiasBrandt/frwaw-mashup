@@ -1,0 +1,8 @@
+.flickrImage > .title {
+    color: #ff0000;
+}
+
+.flickrImage > img {
+    width: 100%;
+}
+
