@@ -9,7 +9,7 @@ function searchFlickr() {
 
         data.photos.photo.forEach(function(photo) {
             // TODO: instead of using appendTo() multiple times, somehow concatenate the results together and perform one big appendTo()
-            createImage(photo).appendTo('#resultImages');
+            createImage(photo).appendTo('#slideshow');
         });
     });
 
@@ -24,24 +24,20 @@ function doSearch(searchTerm) {
             'api_key' : apiKey,
             'format' : 'json',
             'tags' : searchTerm,
-            'per_page' : 100,
+            'per_page' : 6,
             'nojsoncallback' : 1
         }
     });
 }
 
 function createImage(photo) {
-    var container = $('<div/>', { class: 'col-xs-3 flickrImage' });
+    var imgSrc = 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg';
 
-    var title = $('<div/>', {
-        class: 'title wordwrap col-xs-12',
-        text: photo.title
-    });
+    var container = $('<div/>', { class: 'slideshowImage' });
 
     var image = jQuery('<img/>', {
-        class: 'col-xs-12',
-        src: 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg'
+        src: imgSrc
     });
 
-    return container.append(title).append(image);
+    return container.append(image);
 }

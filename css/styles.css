@@ -1,23 +1,61 @@
-.flickrImage {
-    padding: 10px;
+body {
+    background-color: #444444;
 }
 
-.flickrImage > .title {
+.container-fluid {
     padding: 0px;
-    padding-right: 20px;
+}
+
+header {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0px 0px 10px 0px;
+}
+
+header h2 {
+    margin: 0px;
+}
+
+.middle {
+    color: #ffffff;
+    /*padding: 20px 0px 20px 0px;*/
+    padding: 0px;
+}
+
+footer {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 20px;
     position: absolute;
-    bottom: 10px;
-    z-index: 1;
-    background: rgba(255, 255, 255, 0.75);
+    bottom: 0px;
+    width: 100%;
 }
 
-.flickrImage > img {
+.slideshowImage {
     padding: 0px;
-    z-index: 0;
+    display: inline-block;
+}
+
+/*.flickrImage > .title {*/
+    /*padding: 0px;*/
+    /*padding-right: 20px;*/
+    /*position: absolute;*/
+    /*bottom: 10px;*/
+    /*background: rgba(255, 255, 255, 0.75);*/
+/*}*/
+
+.slideshowImage > img {
+    padding: 0px;
+    width: 100px;
+
 }
 
 .search {
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
 }
 
 .wordwrap {

@@ -10,21 +10,32 @@
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/styles.css" />
 </head>
+
 <body>
-    <div class="container">
-        <div class="search">
-            <div class="form-group">
-                <p>Search Flickr</p>
-                <input id="flickr.searchTerm" value="ferrari" class="form-control" />
+    <div class="container-fluid">
+        <header>
+            <div class="search">
+                <div class="form-group">
+                    <h1>Flickr Infinite Slideshow</h1>
+
+                    <input id="flickr.searchTerm" value="ferrari" class="form-control" />
+                </div>
+
+                <div class="container-fluid">
+                    <input class="button btn btn-default col-xs-1" type="submit" value="Submit" onclick="searchFlickr()" />
+
+                    <div class="col-xs-11"><h2 id="resultCount"></h2></div>
+                </div>
             </div>
-            <input class="button" type="submit" value="Submit" onclick="searchFlickr()" />
+        </header>
+
+        <div class="middle">
+            <div id="slideshow"></div>
         </div>
 
-        <div class="results">
-            <div id="resultCount"></div>
-
-            <div id="resultImages"></table>
-        </div>
+        <footer class="bottom">
+            Derp, some footer content
+        </footer>
     </div>
 </body>
 </html>
