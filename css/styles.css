@@ -53,11 +53,12 @@ footer {
 .slideshowImage {
     display: inline-block;
     width: 25%;
+    height: 250px;
+    overflow: hidden;
 }
 
 .slideshowImage > img {
     width: 100%;
-    max-height: 250px;
     -webkit-animation-name: showSlideshowImage; /* Chrome, Safari, Opera */
     -webkit-animation-duration: 1s; /* Chrome, Safari, Opera */
     animation-name: showSlideshowImage;
