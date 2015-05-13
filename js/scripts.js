@@ -60,6 +60,22 @@ function reverse() {
     });
 }
 
+function drag(event) {
+    event.originalEvent.dataTransfer.setData('text', event.target.id);
+    console.log('dragging: ' + event.target.id);
+}
+
+function drop(event) {
+    event.preventDefault();
+    var data = event.dataTransfer.getData('text');
+    event.target.appendChild(document.getElementById(data));
+    console.log('dropping: ' + data);
+}
+
+function allowDrop(event) {
+    event.preventDefault();
+}
+
 function doSearch(searchTerm) {
     console.log('searching page ' + getPageNumber());
     return $.ajax({
@@ -84,6 +100,8 @@ function createImage(photo) {
 
     var image = jQuery('<img/>', {
         src: imgSrc,
+        id: photo.id,
+        draggable: true,
         click: function() {
             $('#image-modal-title').html(photo.title);
             $('#image-modal-body').html($('<img/>', {
@@ -101,6 +119,8 @@ function createImage(photo) {
             $('#imageModal').modal('show');
         }
     });
+
+    image.bind('dragstart', function(event) { drag(event); });
 
     return container.append(image);
 }
