@@ -1,6 +1,10 @@
 var apiKey = 'bc087c0b6239762cbcb64b281dde7b54';
 var url = 'https://api.flickr.com/services/rest/';
 
+$(document).ready(function() {
+    $('#imageModal').modal('show');
+})
+
 function searchFlickr() {
     var searchTerm = document.getElementById('searchInput').value;
 
@@ -73,6 +77,10 @@ function createImage(photo) {
                     $('#imageModal').modal('hide');
                 }
             }));
+
+            if(!$('#modal-size').hasClass('modal-lg')) {
+                $('#modal-size').addClass('modal-lg');
+            }
 
             $('#imageModal').modal('show');
         }
