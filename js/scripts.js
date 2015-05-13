@@ -24,7 +24,7 @@ function doSearch(searchTerm) {
             'api_key' : apiKey,
             'format' : 'json',
             'tags' : searchTerm,
-            'per_page' : 6,
+            'per_page' : 4,
             'nojsoncallback' : 1
         }
     });

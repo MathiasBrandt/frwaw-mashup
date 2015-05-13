@@ -1,5 +1,5 @@
 body {
-    background-color: #444444;
+    background-color: #000000;
 }
 
 .container-fluid {
@@ -22,40 +22,45 @@ header h2 {
 
 .middle {
     color: #ffffff;
+    background-color: #444444;
     /*padding: 20px 0px 20px 0px;*/
     padding: 0px;
+    height: 500px;
+    width: 100%;
+    position: relative;
 }
 
 footer {
     background-color: #000000;
-    color: #ffffff;
+    color: #5d5d5d;
     padding: 20px;
-    position: absolute;
-    bottom: 0px;
+    /*position: absolute;*/
+    /*bottom: 0px;*/
     width: 100%;
 }
 
-.slideshowImage {
-    padding: 0px;
-    display: inline-block;
+.nav-button {
+    height: 100%;
+    width: 3%;
+    background-color: #000000;
+    padding-top: 240px;
 }
 
-/*.flickrImage > .title {*/
-    /*padding: 0px;*/
-    /*padding-right: 20px;*/
-    /*position: absolute;*/
-    /*bottom: 10px;*/
-    /*background: rgba(255, 255, 255, 0.75);*/
-/*}*/
+#slideshow {
+    width: 94%;
+    position: absolute;
+    margin-left: 3%;
+}
+
+.slideshowImage {
+    display: inline-block;
+    width: 25%;
+}
 
 .slideshowImage > img {
-    padding: 0px;
-    width: 100px;
+    width: 100%;
+    max-height: 500px;
 
-}
-
-.search {
-    /*margin-bottom: 20px;*/
 }
 
 .wordwrap {
