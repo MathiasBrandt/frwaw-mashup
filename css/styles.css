@@ -34,8 +34,6 @@ footer {
     background-color: #000000;
     color: #5d5d5d;
     padding: 20px;
-    /*position: absolute;*/
-    /*bottom: 0px;*/
     width: 100%;
 }
 
@@ -59,14 +57,42 @@ footer {
 
 .slideshowImage > img {
     width: 100%;
-    max-height: 500px;
+    max-height: 250px;
+    -webkit-animation-name: showSlideshowImage; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 1s; /* Chrome, Safari, Opera */
+    animation-name: showSlideshowImage;
+    animation-duration: 2s;
 
+}
+
+.middle .button {
+    background-color: transparent;
+    border: none;
+}
+
+.modalImage {
+    width: 100%;
 }
 
 .wordwrap {
     white-space: pre-wrap;      /* CSS3 */
     white-space: -moz-pre-wrap; /* Firefox */
-    white-space: -pre-wrap;     /* Opera <7 */
     white-space: -o-pre-wrap;   /* Opera 7 */
     word-wrap: break-word;      /* IE */
+}
+
+.loading-text {
+    padding-top:  240px;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes showSlideshowImage {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Standard syntax */
+@keyframes showSlideshowImage {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
