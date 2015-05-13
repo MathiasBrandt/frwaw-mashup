@@ -5,6 +5,22 @@ $(document).ready(function() {
     $('#imageModal').modal('show');
 })
 
+// using keyup instead of keydown to prevent sending too many requests
+$(document).keyup(function(e) {
+    switch(e.which) {
+        case 37: // left
+            getPreviousPage();
+            break;
+
+        case 39: // right
+            getNextPage();
+            break;
+
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});
+
 function searchFlickr() {
     var searchTerm = document.getElementById('searchInput').value;
 
