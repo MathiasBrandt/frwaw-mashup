@@ -64,14 +64,14 @@ function reverse() {
 function drag(event) {
     event.originalEvent.dataTransfer.setData('text', event.target.id);
     console.log('dragging: ' + event.target.id);
-}
-
-function drop(event) {
-    event.preventDefault();
 
     $('#drop-text').remove();
     $('#drop-container').removeClass('text-center');
     $('#drop-container').removeClass('drop-text');
+}
+
+function drop(event) {
+    event.preventDefault();
 
     var data = event.dataTransfer.getData('text');
     event.target.appendChild(document.getElementById(data));
