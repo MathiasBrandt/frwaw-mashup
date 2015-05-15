@@ -30,6 +30,23 @@ header h2 {
     position: relative;
 }
 
+.dropbox {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 0px;
+    background-color: #444444;
+    height: 200px;
+    color: #ffffff;
+    position: relative;
+}
+
+#drop-container .slideshowImage {
+    display: inline-block;
+    width: 10%;
+    height: 50px;
+    overflow: hidden;
+}
+
 footer {
     background-color: #000000;
     color: #5d5d5d;
@@ -50,7 +67,7 @@ footer {
     margin-left: 3%;
 }
 
-.slideshowImage {
+#slideshow .slideshowImage {
     display: inline-block;
     width: 25%;
     height: 250px;
@@ -59,7 +76,6 @@ footer {
 
 .slideshowImage > img {
     width: 100%;
-
 }
 
 .fadeIn {
@@ -86,7 +102,11 @@ footer {
 }
 
 .loading-text {
-    padding-top:  240px;
+    padding-top: 240px;
+}
+
+.drop-text {
+    padding-top: 90px;
 }
 
 /* Chrome, Safari, Opera */

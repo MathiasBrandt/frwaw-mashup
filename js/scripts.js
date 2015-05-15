@@ -29,6 +29,7 @@ function searchFlickr() {
     doSearch(searchTerm).done(function(data) {
         $('#resultCount').html('Results: ' + data.photos.total);
         $('#slideshow').empty();
+
         data.photos.photo.forEach(function(photo) {
             // TODO: instead of using appendTo() multiple times, somehow concatenate the results together and perform one big appendTo()
             createImage(photo).appendTo('#slideshow');
@@ -67,6 +68,11 @@ function drag(event) {
 
 function drop(event) {
     event.preventDefault();
+
+    $('#drop-text').remove();
+    $('#drop-container').removeClass('text-center');
+    $('#drop-container').removeClass('drop-text');
+
     var data = event.dataTransfer.getData('text');
     event.target.appendChild(document.getElementById(data));
     console.log('dropping: ' + data);
@@ -96,13 +102,18 @@ function doSearch(searchTerm) {
 function createImage(photo) {
     var imgSrc = 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg';
 
-    var container = $('<div/>', { class: 'slideshowImage' });
+    var container = $('<div/>', {
+        id: photo.id,
+        class: 'slideshowImage',
+        draggable: true
+    });
 
-    var image = jQuery('<img/>', {
+    container.bind('dragstart', function(event) { drag(event); });
+
+    var image = $('<img/>', {
         src: imgSrc,
         class: 'hidden',
-        id: photo.id,
-        draggable: true,
+        draggable: false,
         click: function() {
             $('#image-modal-title').html(photo.title);
             $('#image-modal-body').html($('<img/>', {
@@ -121,7 +132,6 @@ function createImage(photo) {
         }
     });
 
-    image.bind('dragstart', function(event) { drag(event); });
     image.on('load', function() {
         $(this).removeClass('hidden');
         $(this).addClass('fadeIn');
