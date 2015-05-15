@@ -122,6 +122,10 @@ header .button {
     padding: 0px;
 }
 
+.list {
+    padding-left: 20px;
+}
+
 /* Chrome, Safari, Opera */
 @-webkit-keyframes showSlideshowImage {
     from { opacity: 0; }

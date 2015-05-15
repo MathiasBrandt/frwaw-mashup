@@ -12,23 +12,24 @@
     <link rel="stylesheet" href="css/styles.css" />
 </head>
 
-<body>
+<body class="fadeIn">
     <!-- Modal -->
     <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div id="modal-size" class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="image-modal-title">Welcome</h4>
+                    <h4 class="modal-title text-center" id="image-modal-title">Welcome to Infinite Flickr Slideshow</h4>
                 </div>
                 <div class="modal-body" id="image-modal-body">
-                    Search for whatever
-                    <br />
-                    Use arrows to navigate
-                    <br />
-                    Click an image to enlarge
-                    <br />
-                    Drag an image to the bottom row to save it
+                    <ul class="list">
+                        <li>Search flickr for whatever you want</li>
+                        <li>Use the arrow keys on your keyboard or the buttons on each side of the slideshow to navigate</li>
+                        <li>Click on an image to enlarge it</li>
+                        <li>Drag an image to the box in the bottom to save it for later</li>
+                    </ul>
+
+                    <p>Click anywhere outside this box to close it.</p>
                 </div>
             </div>
         </div>
@@ -39,7 +40,7 @@
         <header>
             <div class="container-fluid">
                 <div class="col-xs-6 no-padding">
-                    <h1>Flickr Infinite Slideshow</h1>
+                    <h1>Infinite Flickr Slideshow</h1>
                 </div>
                 <div class="col-xs-6 text-right no-padding">
                     &copy; 2015 Mathias Brandt. All images copyright of their respective owners.
