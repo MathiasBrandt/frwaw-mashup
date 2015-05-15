@@ -32,7 +32,12 @@ $(document).keyup(function(e) {
 });
 
 // search flickr for a specific search term and add resulting images to the slideshow
-function searchFlickr() {
+function searchFlickr(newSearch) {
+    if(newSearch) {
+        // if a new search has been performed, reset the page number to 1
+        setPageNumber(1);
+    }
+
     // what to search for, entered by the user
     var searchTerm = document.getElementById('searchInput').value;
 
@@ -58,13 +63,13 @@ function searchFlickr() {
 // get the next page of images from flickr
 function getNextPage() {
     setPageNumber(getPageNumber() + 1);
-    searchFlickr();
+    searchFlickr(false);
 }
 
 // get the previous page of images from flickr
 function getPreviousPage() {
     setPageNumber(Math.max(getPageNumber() - 1, 1));
-    searchFlickr();
+    searchFlickr(false);
 }
 
 // get the current page number
