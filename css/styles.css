@@ -65,6 +65,7 @@ footer {
     width: 94%;
     position: absolute;
     margin-left: 3%;
+    line-height: 0em;
 }
 
 #slideshow .slideshowImage {
