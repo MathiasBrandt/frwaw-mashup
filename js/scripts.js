@@ -11,7 +11,7 @@ $(document).ready(function() {
 
     // if some images were loaded from local storage, remove the text from the drop container
     if(didLoad) {
-        clearDropContainer();
+        hideDropContainerText();
     }
 })
 
@@ -81,7 +81,7 @@ function setPageNumber(page) {
 function drag(event) {
     event.originalEvent.dataTransfer.setData('text', event.target.id);
 
-    clearDropContainer();
+    hideDropContainerText();
 }
 
 // callback for when user drops an image in the drop container
@@ -95,6 +95,7 @@ function drop(event) {
 
     jQueryElement.fadeOut(250, function() {
         event.target.appendChild(element);
+        jQueryElement.addClass('drop-container-image');
         jQueryElement.fadeIn(250);
     });
 
@@ -188,7 +189,7 @@ function loadImagesFromStorage() {
 
         storedImages.forEach(function (imageElement) {
             getFlickrInfo(imageElement.id).done(function (imageInfo) {
-                createImage(imageInfo.photo).appendTo('#drop-container');
+                createImage(imageInfo.photo).addClass('drop-container-image').appendTo('#drop-container');
             })
         });
 
@@ -215,13 +216,21 @@ function getFlickrInfo(id) {
 }
 
 // clear the text in the drop container
-function clearDropContainer() {
-    $('#drop-text').remove();
+function hideDropContainerText() {
+    $('#drop-text').hide();
     $('#drop-container').removeClass('text-center');
     $('#drop-container').removeClass('drop-text');
 }
 
+function showDropContainerText() {
+    $('#drop-text').show();
+    $('#drop-container').addClass('text-center');
+    $('#drop-container').addClass('drop-text');
+}
+
 function clearLocalStorage() {
     localStorage.clear();
-    $('#drop-container').html('');
+    $('.drop-container-image').remove();
+
+    showDropContainerText();
 }
