@@ -85,6 +85,10 @@ footer {
     animation-duration: 2s;
 }
 
+header .button {
+    margin-left: 20px;
+}
+
 .middle .button {
     background-color: transparent;
     border: none;
@@ -107,6 +111,10 @@ footer {
 
 .drop-text {
     padding-top: 90px;
+}
+
+.no-padding {
+    padding: 0px;
 }
 
 /* Chrome, Safari, Opera */
