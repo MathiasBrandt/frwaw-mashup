@@ -17,6 +17,11 @@ $(document).ready(function() {
 
 // using keyup instead of keydown to prevent sending too many requests
 $(document).keyup(function(e) {
+    // if search field has focus, don't continue
+    if($('#searchInput').is(':focus')) {
+        return;
+    }
+
     switch(e.which) {
         case 37: // left
             getPreviousPage();
@@ -28,6 +33,7 @@ $(document).keyup(function(e) {
 
         default: return; // exit this handler for other keys
     }
+
     e.preventDefault(); // prevent the default action (scroll / move caret)
 });
 
@@ -37,9 +43,12 @@ function searchFlickr(newSearch) {
         // if a new search has been performed, reset the page number to 1
         setPageNumber(1);
     }
-
+    
     // what to search for, entered by the user
-    var searchTerm = document.getElementById('searchInput').value;
+    var searchTerm = document.getElementById('searchInput').value.trim();
+
+    // if search field has no input, don't continue
+    if(searchTerm == '') { return; }
 
     // show 'loading' text in the slideshow
     $('#slideshow').html($('<div/>', {
