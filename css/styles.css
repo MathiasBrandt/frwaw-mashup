@@ -30,9 +30,13 @@ header h2 {
     position: relative;
 }
 
-.dropbox {
+.local-storage {
     margin-top: 25px;
     margin-bottom: 25px;
+    padding: 0px;
+}
+
+.dropbox {
     padding: 0px;
     background-color: #444444;
     height: 200px;

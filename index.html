@@ -67,8 +67,13 @@
             </div>
         </div>
 
-        <div id="drop-container" class="dropbox col-xs-4 col-xs-offset-4 text-center drop-text" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <p id="drop-text">Drop images here to save them for later.</p>
+        <div class="local-storage col-xs-12">
+            <div id="drop-container" class="dropbox col-xs-4 col-xs-offset-3 text-center drop-text" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <p id="drop-text">Drop images here to save them for later.</p>
+            </div>
+            <div class="col-xs-2">
+                <input class="button btn btn-default col-xs-12" type="submit" value="Clear local storage" onclick="clearLocalStorage()" />
+            </div>
         </div>
     </div>
 </div>

@@ -220,3 +220,8 @@ function clearDropContainer() {
     $('#drop-container').removeClass('text-center');
     $('#drop-container').removeClass('drop-text');
 }
+
+function clearLocalStorage() {
+    localStorage.clear();
+    $('#drop-container').html('');
+}
