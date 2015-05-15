@@ -59,11 +59,14 @@ footer {
 
 .slideshowImage > img {
     width: 100%;
+
+}
+
+.fadeIn {
     -webkit-animation-name: showSlideshowImage; /* Chrome, Safari, Opera */
     -webkit-animation-duration: 1s; /* Chrome, Safari, Opera */
     animation-name: showSlideshowImage;
     animation-duration: 2s;
-
 }
 
 .middle .button {

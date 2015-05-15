@@ -100,6 +100,7 @@ function createImage(photo) {
 
     var image = jQuery('<img/>', {
         src: imgSrc,
+        class: 'hidden',
         id: photo.id,
         draggable: true,
         click: function() {
@@ -121,6 +122,10 @@ function createImage(photo) {
     });
 
     image.bind('dragstart', function(event) { drag(event); });
+    image.on('load', function() {
+        $(this).removeClass('hidden');
+        $(this).addClass('fadeIn');
+    });
 
     return container.append(image);
 }
