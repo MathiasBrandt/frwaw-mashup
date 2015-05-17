@@ -43,7 +43,7 @@ function searchFlickr(newSearch) {
         // if a new search has been performed, reset the page number to 1
         setPageNumber(1);
     }
-    
+
     // what to search for, entered by the user
     var searchTerm = document.getElementById('searchInput').value.trim();
 
@@ -64,7 +64,7 @@ function searchFlickr(newSearch) {
 
         data.photos.photo.forEach(function(photo) {
             // append each image in the flickr search result to the slideshow
-            createImage(photo).appendTo('#slideshow');
+            createImage(photo, true).appendTo('#slideshow');
         });
     });
 }
@@ -110,6 +110,8 @@ function drop(event) {
     jQueryElement.fadeOut(250, function() {
         event.target.appendChild(element);
         jQueryElement.addClass('drop-container-image');
+        //jQueryElement.remove('#' + targetId + 'title');
+        $('#' + targetId + 'title').remove();
         jQueryElement.fadeIn(250);
     });
 
@@ -146,7 +148,7 @@ function doSearch(searchTerm) {
 }
 
 // create an image element inside a div container from a flickr photo element
-function createImage(photo) {
+function createImage(photo, includeTitle) {
     // construct the image source
     var imgSrc = 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '.jpg';
 
@@ -185,6 +187,16 @@ function createImage(photo) {
         }
     });
 
+    if(includeTitle) {
+        var title = $('<div/>', {
+            id: photo.id + 'title',
+            class: 'slideshowImageTitle wordwrap',
+            text: photo.title
+        });
+
+        container.append(title);
+    }
+
     // make the image fade in once it has been downloaded
     image.on('load', function() {
         $(this).removeClass('hidden');
@@ -203,7 +215,7 @@ function loadImagesFromStorage() {
 
         storedImages.forEach(function (imageElement) {
             getFlickrInfo(imageElement.id).done(function (imageInfo) {
-                createImage(imageInfo.photo).addClass('drop-container-image').appendTo('#drop-container');
+                createImage(imageInfo.photo, false).addClass('drop-container-image').appendTo('#drop-container');
             })
         });
 
