@@ -1,6 +1,7 @@
 var apiKey = 'bc087c0b6239762cbcb64b281dde7b54';
 var url = 'https://api.flickr.com/services/rest/';
 var storedImages = [];
+var pageCount = 0;
 
 $(document).ready(function() {
     // show the welcome popup
@@ -59,6 +60,8 @@ function searchFlickr(newSearch) {
     doSearch(searchTerm).done(function(data) {
         // set the result count in the gui
         $('#resultCount').html('Results: ' + data.photos.total);
+        // set the page count of the current search
+        pageCount = data.photos.pages;
         // clear the slideshow for 'loading' text or previously shown images
         $('#slideshow').empty();
 
@@ -77,7 +80,7 @@ function getNextPage() {
 
 // get the previous page of images from flickr
 function getPreviousPage() {
-    setPageNumber(Math.max(getPageNumber() - 1, 1));
+    setPageNumber(getPageNumber() - 1);
     searchFlickr(false);
 }
 
@@ -88,6 +91,13 @@ function getPageNumber() {
 
 // set the current page number
 function setPageNumber(page) {
+    // if page exceeds the page count, wrap to 1. If page is less than 1, wrap to page count.
+    if(page > pageCount) {
+        page = 1;
+    } else if(page <= 0) {
+        page = pageCount;
+    }
+
     document.getElementById('pageNumber').value = page;
 }
 
