@@ -167,6 +167,12 @@ function createImage(photo, includeTitle) {
     var image = $('<img/>', {
         src: imgSrc,
         class: 'hidden',
+        draggable: false
+    });
+
+    var title = $('<div/>', {
+        id: photo.id + 'title',
+        class: 'slideshowImageTitle wordwrap',
         draggable: false,
         click: function() {
             $('#image-modal-title').html(photo.title);
@@ -187,19 +193,10 @@ function createImage(photo, includeTitle) {
     });
 
     if(includeTitle) {
-        var title = $('<div/>', {
-            id: photo.id + 'title',
-            class: 'slideshowImageTitle wordwrap',
-            text: photo.title
-        });
-    } else {
-        var title = $('<div/>', {
-            id: photo.id + 'title',
-            class: 'slideshowImageTitle wordwrap'
-        });
+        title.html(photo.title);
     }
 
-        container.append(title);
+    container.append(title);
 
     // make the image fade in once it has been downloaded
     image.on('load', function() {
