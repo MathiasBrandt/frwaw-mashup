@@ -110,8 +110,7 @@ function drop(event) {
     jQueryElement.fadeOut(250, function() {
         event.target.appendChild(element);
         jQueryElement.addClass('drop-container-image');
-        //jQueryElement.remove('#' + targetId + 'title');
-        $('#' + targetId + 'title').remove();
+        $('#' + targetId + 'title').html('');
         jQueryElement.fadeIn(250);
     });
 
@@ -193,9 +192,14 @@ function createImage(photo, includeTitle) {
             class: 'slideshowImageTitle wordwrap',
             text: photo.title
         });
+    } else {
+        var title = $('<div/>', {
+            id: photo.id + 'title',
+            class: 'slideshowImageTitle wordwrap'
+        });
+    }
 
         container.append(title);
-    }
 
     // make the image fade in once it has been downloaded
     image.on('load', function() {

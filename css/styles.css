@@ -39,15 +39,16 @@ header h2 {
 .dropbox {
     padding: 0px;
     background-color: #444444;
-    height: 200px;
+    height: 148px;
     color: #ffffff;
     position: relative;
+    line-height: 0em;
 }
 
 #drop-container .slideshowImage {
     display: inline-block;
     width: 10%;
-    height: 50px;
+    height: 37px;
     overflow: hidden;
     position: relative;
 }
