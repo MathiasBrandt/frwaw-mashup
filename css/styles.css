@@ -149,6 +149,10 @@ header .button {
     opacity: 1;
 }
 
+.searchInfo {
+    margin-bottom: 0px;
+}
+
 /* Chrome, Safari, Opera */
 @-webkit-keyframes showSlideshowImage {
     from { opacity: 0; }

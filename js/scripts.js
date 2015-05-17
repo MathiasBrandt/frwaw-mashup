@@ -62,6 +62,8 @@ function searchFlickr(newSearch) {
         $('#resultCount').html('Results: ' + data.photos.total);
         // set the page count of the current search
         pageCount = data.photos.pages;
+        // update the page info in the gui
+        $('#pageInfo').html('Page: ' + getPageNumber() + '/' + pageCount);
         // clear the slideshow for 'loading' text or previously shown images
         $('#slideshow').empty();
 
